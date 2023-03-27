@@ -1,6 +1,6 @@
 # UV-Path
 
-UV-Path, an interactive $\textcolor{green}{U}ncertainty-aware$ $\textcolor{blue}{V}isualization$ framework that facilitates $\textcolor{orange}{A}ctive$ $\textcolor{red}{L}earning$  for deep learning-based $histo\textcolor{red}{Path}ological$ image analysis. **UV-Path** includes a noise-hard sample monitoring module, which allows experts to review samples and intervene in the model outcomes during the active learning (AL) process, enhancing both learning performance and transparency. 
+UV-Path, an interactive $\textcolor{green}{U}ncertainty-aware \textcolor{blue}{V}isualization$ framework that facilitates $\textcolor{orange}{A}ctive$ $\textcolor{red}{L}earning$  for deep learning-based $histo\textcolor{red}{Path}ological$ image analysis. **UV-Path** includes a noise-hard sample monitoring module, which allows experts to review samples and intervene in the model outcomes during the active learning (AL) process, enhancing both learning performance and transparency. 
 
 The related paper, "UV-Path: Uncertainty-aware Visual Analytics for Weakly Supervised Learning on Histopathological Images," has been submitted to VIS 2023.
 
