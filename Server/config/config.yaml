@@ -1,0 +1,55 @@
+cuda_id: '0'
+multi_cuda: 0 # 0: don't use multi; 1: use
+seed: 42
+
+model: resnet50
+num_features: 2048
+batch_size: 64
+o2u_batch_size: 32
+optim: SGD # SGD or Adam
+num_workers: 4
+
+dataset: 
+  name: peso_train
+  path: D:\DATASETS\peso\train\init_data
+  size: 224
+  tile_size: 1024
+  num_class: 3
+
+
+# noise param
+noise_rate: 0.0
+noise_method: 'nearly' # symmetric; pairflip; nearly;
+noise_range: all # all: both labeled and unlabeled ; labeled: only labeled sample; 
+methods: both
+
+# train iteration param
+pretrained_iteration: 50    #!
+max_iteration: 20
+
+# O2U param
+o2u_iteration: 20           #!
+o2u_noise_rate: 0.02
+o2u_infor_rate: 0.03
+
+# cluster param
+Kmeans_cluster: 10           #!
+Kmeans_Visual_cluster: 8
+CC_cluster: 3
+PCA_components: 256
+Knn_act: 0 # 1: use knn; 0:don't use knn
+Knn_number: 1 # neighbors number 
+
+# Grad-CAM
+grad_save: 0
+# 
+visual_method: tsne
+# paths
+save_data_dir: D:\DATASETS\peso\train\
+logger_path: D:\Code\TVCG\project\FlaskServer\logs
+save_param_dir: D:\Code\TVCG\project\FlaskServer\models\param
+
+
+
+
+
