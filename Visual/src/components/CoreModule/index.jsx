@@ -7,7 +7,6 @@
 import React, { Component } from "react";
 import { Row, Col, Card } from "antd";
 import ScatterModel from "./ScatterModel";
-import SankeyModel from "./SankeyModel";
 
 export default class CoreModule extends Component {
   constructor(props) {

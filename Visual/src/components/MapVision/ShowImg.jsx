@@ -14,8 +14,6 @@ const indexStyle = {
   width: 75,
   border: "2px solid red",
 };
-const { Title, Text } = Typography;
-// const imgIndex = [[-1, -1], [0, -1], [1, -1], [-1, 0], [0, 0], [1, 0], [-1, 1], [0, 1], [1, 1]]
 const imgIndex = [
   [-1, -1],
   [0, -1],

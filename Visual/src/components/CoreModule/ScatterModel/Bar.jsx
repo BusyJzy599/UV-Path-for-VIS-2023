@@ -7,12 +7,7 @@
 import React, { Component } from "react";
 import ReactECharts from "echarts-for-react";
 import { message } from "antd";
-import * as d3 from "d3";
 
-const category_name = ["LUSC", "LUAD"];
-const category_color = ["blue", "geekblue", "purple"]; // and more
-const noise_tag_color = ['#90b7b7', '#a9906c', '#ef9a9a']
-const noise_tag_name = ["clean", "noise", "high-noise"];
 export default class Bar extends Component {
   constructor(props) {
     super(props);
@@ -61,18 +56,12 @@ export default class Bar extends Component {
     var patchNum = [];
     var O2u = [];
     var Fine = [];
-    var Grades0 = [];
-    var Grades1 = [];
-    var Grades2 = [];
 
-    // console.log(this.props.WSI_Data);
     var img_len = Object.keys(this.props.WSI_Data.img_id).length;
     for (var i = 0; i < img_len; i++) {
       index.push(this.props.WSI_Data["img_id"][i]);
       patchNum.push(this.props.WSI_Data["patch_num"][i]);
-      // Grades0.push(this.props.WSI_Data["grades0"][i]);
-      // Grades1.push(this.props.WSI_Data["grades1"][i]);
-      // Grades2.push(this.props.WSI_Data["grades2"][i]);
+
       O2u.push(this.props.WSI_Data["o2us"][i]);
       Fine.push(this.props.WSI_Data["fines"][i]);
     }
@@ -163,36 +152,6 @@ export default class Bar extends Component {
             data: normalize(Fine),
             large: true,
           },
-          // {
-          //   name: "clear rate",
-          //   type: "bar",
-          //   stack: "CC",
-          //   color: noise_tag_color[0],
-          //   emphasis: {
-          //     focus: "series",
-          //   },
-          //   data: Grades0,
-          // },
-          // {
-          //   name: "noise rate",
-          //   type: "bar",
-          //   stack: "CC",
-          //   color: noise_tag_color[1],
-          //   emphasis: {
-          //     focus: "series",
-          //   },
-          //   data: Grades1,
-          // },
-          // {
-          //   name: "high-noise rate",
-          //   type: "bar",
-          //   stack: "CC",
-          //   color: noise_tag_color[2],
-          //   emphasis: {
-          //     focus: "series",
-          //   },
-          //   data: Grades2,
-          // },
         ],
       },
     });

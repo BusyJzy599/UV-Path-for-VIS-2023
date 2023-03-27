@@ -32,15 +32,14 @@ import {
 import ShowImg from "./ShowImg";
 
 const { Option } = Select;
-// 常量设置
 const { Title, Text } = Typography;
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
-const maxValue = 40; // 缩放大小
-const lineWidth = 0.1; // 分割线宽度
-const rows = 65; //每行个数
-const cols = 70; //每列个数
-const imgSize = 12; //图片大小
+const maxValue = 40; 
+const lineWidth = 0.1; 
+const rows = 65; 
+const cols = 70; 
+const imgSize = 12; 
 
 const mapColors = [
   "#e7f1ff",
@@ -118,9 +117,7 @@ export default class MapVision extends Component {
           left: "30%",
           right: "10%",
         },
-        // title: {
-        //     text: 'Noise Evaluation Metrics'
-        // },
+    
         yAxis: {
           type: "category",
           data: ["Fitting", "Alinment"],
@@ -131,7 +128,6 @@ export default class MapVision extends Component {
           max: 1.0,
           show: false,
           splitLine: {
-            //网格线
             show: false,
           },
         },
@@ -265,7 +261,7 @@ export default class MapVision extends Component {
     });
   };
   handleOk = () => {
-    //   setModalText('The modal will be closed after two seconds');
+  
     this.setConfirmLoading(true);
     setTimeout(() => {
       this.setVisible(false, 0);
@@ -365,8 +361,6 @@ export default class MapVision extends Component {
     xScale.domain([0, rows]).range([0, imgSize * rows]);
     yScale.domain([0, cols]).range([imgSize * cols, 0]);
     d3.select("#map").selectAll("svg").remove();
-
-    // 初始化zoom
     const zoom = d3
       .zoom()
       .scaleExtent([1, maxValue])
@@ -375,20 +369,18 @@ export default class MapVision extends Component {
         [imgSize * rows, imgSize * cols],
       ])
       .on("zoom", zoomed);
-    // 热力图
     var colorScale = d3
       .scaleLinear()
       .domain([0, 1])
       .range(colors)
       .interpolate(d3.interpolateHcl);
-    // 初始化画布
     const mainGroup = d3
       .select("#map")
       .append("svg")
       .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("width", "100%")
       .attr("height", "100%");
-    //导入数据
+
     var imgData = [];
     var bk_imgData = [];
     var noiseChild = [];
@@ -441,7 +433,6 @@ export default class MapVision extends Component {
         });
       }
     }
-    // 格式化
     var o2u_range = [2, -1];
     var fine_range = [2, -1];
     var smooth = 1e-5;
@@ -463,8 +454,6 @@ export default class MapVision extends Component {
         (imgData[i]["fine"] - fine_range[0]) /
         (fine_range[1] - fine_range[0] + smooth);
     }
-
-    // 找边界
     var min_y = 100;
     var max_y = 0;
     for (var i = 0; i < rows; i++)
@@ -492,11 +481,10 @@ export default class MapVision extends Component {
       noiseChildren: noiseChild,
     });
 
-    // 添加
     mainGroup.call(zoom);
     drawGrid();
     drawPatches();
-    // 恢复大小
+
     d3.select("#zoom_out").on("click", () => {
       mainGroup.transition().call(zoom.transform, d3.zoomIdentity, [0, 0]);
       mainGroup.selectAll("rect").remove();
@@ -504,11 +492,11 @@ export default class MapVision extends Component {
         heatMapType: "close",
       });
     });
-    // 改变热力图
+
     d3.select("#zoom_change").on("change", toHeatMap);
     d3.select("#zoom_change1").on("change", toHeatMap);
 
-    // 绘制网格
+ 
     async function drawGrid(event) {
       mainGroup.selectAll("line").remove();
       var margin = lineWidth;
@@ -543,7 +531,7 @@ export default class MapVision extends Component {
           );
       mainGroup.call(grid);
     }
-    // 绘图
+
     async function drawPatches(event) {
       mainGroup.selectAll("image").remove();
 
@@ -644,7 +632,7 @@ export default class MapVision extends Component {
         }
       });
     }
-    //绘制热力图
+
     async function drawHeatMap() {
       if (This.state.heatMapType != "close") {
         mainGroup.selectAll("rect").remove();
@@ -663,7 +651,7 @@ export default class MapVision extends Component {
             var lb = parseInt(img["class"]);
             mainGroup
               .append("g")
-              .append("rect") //添加类型
+              .append("rect") 
               .attr("x", imgSize * x + margin)
               .attr("y", imgSize * y + margin)
               .attr("width", imgSize - margin)
@@ -689,7 +677,6 @@ export default class MapVision extends Component {
           });
           bk_imgData.forEach((img) => {
             var x_y = img["file_name"].split("_");
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 这里数据切割问题,y和x是反过来的
             var y = parseInt(x_y[1]);
             var x = parseInt(x_y[3].split("png")[0]);
             var lb = parseInt(img["class"]);
@@ -722,7 +709,7 @@ export default class MapVision extends Component {
           backLocationIndex.forEach((item) => {
             mainGroup
               .append("g")
-              .append("rect") //添加类型
+              .append("rect") 
               .attr("x", imgSize * item[1] + margin)
               .attr("y", imgSize * item[0] + margin)
               .attr("width", imgSize - margin)
@@ -820,7 +807,7 @@ export default class MapVision extends Component {
                   <Select
                     allowClear
                     size="small"
-                    // style={{ width: "100%" }}
+   
                     placeholder="Check Noise"
                     onChange={this.noiseFilter}
                   >

@@ -14,7 +14,7 @@ from random import shuffle
 
 
 
-LABELS = 'D:/DATASETS/hubmap/1000_pixel_images/train.csv'
+LABELS = ''
 is_amp = True
 
 def make_fold1000(organ,fold=0,label_ratio=0.6,noise_ratio=0.3,seed=42):

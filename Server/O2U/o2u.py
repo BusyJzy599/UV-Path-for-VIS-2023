@@ -122,7 +122,7 @@ class O2U(object):
             
             # filter noise in labeled samples
             ind_1_sorted = np.argsort(-self.moving_loss_dic)
-            num_remember = int(self.K1 * self.all_dataset_len)  # 噪声样本的占比
+            num_remember = int(self.K1 * self.all_dataset_len)  
             ind_1_sorted_ = ind_1_sorted[: num_remember]
             noise_ind_1_sorted = [
                 x for x in ind_1_sorted_ if self.grade_label[x] == 0]
@@ -141,7 +141,7 @@ class O2U(object):
             ind_2_sorted = np.argsort(-self.moving_entropy_dic)
             # ind_2_sorted = ind_2_sorted[:len(self.unlabeled_data_loader)]
             ind_2_sorted.tolist().reverse()
-            ea_mi_number = int(self.K2 * self.all_dataset_len)  # 简单样本的比例
+            ea_mi_number = int(self.K2 * self.all_dataset_len)  
             ind_2_sorted = ind_2_sorted[:ea_mi_number]
             ea_mi_ind_2_sorted = [x for x in ind_2_sorted if self.grade_label[x] == 0]
 

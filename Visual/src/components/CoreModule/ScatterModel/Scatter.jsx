@@ -17,9 +17,7 @@ import {
   Menu,
   Dropdown,
   Button,
-  Descriptions,
   Card,
-  Image,
   Switch,
 } from "antd";
 import {
@@ -33,10 +31,8 @@ import "./index.css";
 // global variable
 const { Option } = Select;
 const { Text } = Typography;
-const labelStyle = { fontWeight: 500 };
 
 const category_name = ["no cancer", "cancer", "high cancer"];
-const category_color = ["#40b373", "#d4b446", "#ee8826"]; // and more
 const group_color = [
   "#6fe214",
   "#2e2b7c",
@@ -56,16 +52,13 @@ export default class Scatter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //
-      grade: -1, // 筛选等级
-      category: -1, // 筛选类别
+      grade: -1, 
+      category: -1,
       ImageId: -1,
       showGroup: false,
-      noise_matrix: "o2u", // 筛选噪声指标
-      range: [0, 1], // 筛选噪声指标范围
-      //x,y,imgid,patchid,category,value,grade0~2 number
+      noise_matrix: "o2u", 
+      range: [0, 1],
       hover_data: [],
-      //
       selectPatches: props.patches,
       option: {},
     };
@@ -80,7 +73,6 @@ export default class Scatter extends Component {
   };
   selectGrade = (index, e) => {
     this.setState({ grade: parseInt(index) });
-    // console.log(parseInt(index));
     this.drawChart();
   };
   selectCategory = (index, e) => {
@@ -95,7 +87,7 @@ export default class Scatter extends Component {
     this.setState({ range: value });
     this.drawChart();
   };
-  toGroup = (checked: boolean) => {
+  toGroup = (checked) => {
     this.setState({
       showGroup: checked,
     });
@@ -129,15 +121,12 @@ export default class Scatter extends Component {
     const mainGroup = svg
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-    // var scatter = mainGroup.append("g").attr("class", "scatters");
     setTimeout(() => {
       drawCricle();
-    }, 0);
+    }, 10);
 
     async function drawCricle(event) {
       var sample_data = [];
-      // var data_len = Object.keys(This.props.sample_Data.class).length;
       var data_len = 10000;
       if (event != null) {
         mainGroup.selectAll("path").remove();
@@ -178,7 +167,6 @@ export default class Scatter extends Component {
             This.props.sample_Data.img_id[i],
             This.props.sample_Data[noise_matrix][i],
             This.props.sample_Data.class[i],
-            // new
             This.props.sample_Data.grades_num[i],
             This.props.sample_Data.o2us_num[i],
             This.props.sample_Data.fines_num[i],
@@ -187,7 +175,6 @@ export default class Scatter extends Component {
           ]);
         }
       }
-      // 圆点
       var scatterCmbo = mainGroup
         .selectAll("g")
         .data(sample_data)
@@ -221,9 +208,7 @@ export default class Scatter extends Component {
             console.log(t)
           }
         })
-        // 属性
         .attr("hover_data", (d) => d)
-        //
         .attr("fill", function (d) {
           if (showGroup) return group_color[d[11]];
           else return noise_tag_color[d[2]];
@@ -231,7 +216,6 @@ export default class Scatter extends Component {
         .attr("fill-opacity", (d) => d[5] + 0.2)
         .on("mouseover", function (d, i) {
           d3.select(this).classed("circle-hover", true);
-          // var hd = this.getAttribute('hover_data').split(",")
           var data = i[7].slice(1, -1).split(".");
           This.setState({
             hover_data: i,
@@ -278,7 +262,6 @@ export default class Scatter extends Component {
           d3.select("#tooltipScatter").classed("hidden", true);
         })
         .on("click", function (d, i) {
-          // This.props.changeBarRange(this.getAttribute("hover_data").split(",")[4])
           This.props.changeBarRange(i[4]);
           This.changeImageId(i[4]);
           This.drawChart();
@@ -294,9 +277,7 @@ export default class Scatter extends Component {
             <Row>
               <Col offset={18} span={4}>
                 <Dropdown
-                  // open={true}
-                  // onOpenChange={{}}
-                  // id="scatterTipBox"
+        
                   trigger="click"
                   placement="bottom"
                   overlay={
@@ -374,20 +355,7 @@ export default class Scatter extends Component {
                               return <Option value={index + 1}>{item}</Option>;
                             })}
                           </Select>
-                          {/* <Radio.Group
-                            onChange={this.selectCategory}
-                            defaultValue="-1"
-                          >
-                            <Radio.Button value="-1">All</Radio.Button>
-                            {
-                              category_name.map((item, index) => {
-                                return <Radio.Button value={index}>
-                                {item}
-                              </Radio.Button>
-                              })
-                            }
-                            
-                          </Radio.Group> */}
+                  
                         </Col>
                         <Col span={24}>
                           <Text className="tooltipText" type="secondary">

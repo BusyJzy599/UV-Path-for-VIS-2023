@@ -6,13 +6,8 @@
  */
 
 import React, { Component } from "react";
-import * as d3 from "d3";
 import ReactECharts from "echarts-for-react";
 import { Row, Col, Card, Typography, Select } from "antd";
-const mapLevel = ["Postive", "0.25", "0.45", "0.60", "0.75", "Negative"];
-const category_name = ["no cancer", "cancer", "high cancer"];
-const re_category_name = ["high cancer", "cancer", "no cancer"];
-const category_color = ["#40b373", "#d4b446", "#ee8826"]; // and more
 
 const { Text, Title } = Typography;
 
@@ -108,13 +103,7 @@ export default class LeftModule extends Component {
           borderColor: "#7bae63",
         },
       },
-      // {
-      //   name: "Infor",
-      //   itemStyle: {
-      //     color: "#91cc75",
-      //     borderColor: "#7bae63",
-      //   },
-      // },
+  
     ];
     var linkData = [
       {
@@ -197,7 +186,7 @@ export default class LeftModule extends Component {
           calculable: true,
           show: false,
           inRange: {
-            color: ["#D9E9FF", "#0B69E3"], // 修改热力图的颜色 淡蓝色=>深蓝色的过度
+            color: ["#D9E9FF", "#0B69E3"], 
           },
           orient: "horizontal",
         },
@@ -219,9 +208,6 @@ export default class LeftModule extends Component {
         ],
       },
       sankeyOption: {
-        // title: {
-        //   text: "Sample Flow",
-        // },
         tooltip: {
           trigger: "item",
           triggerOn: "mousemove",
@@ -270,7 +256,7 @@ export default class LeftModule extends Component {
         tooltip: {
           trigger: "axis",
           position: function (point, params, dom, rect, size) {
-            return [point[0] - 100, "0%"]; //返回x、y（横向、纵向）两个点的位置
+            return [point[0] - 100, "0%"]; 
           },
           axisPointer: {
             type: "shadow",

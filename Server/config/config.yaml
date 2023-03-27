@@ -11,7 +11,7 @@ num_workers: 4
 
 dataset: 
   name: peso_train
-  path: D:\DATASETS\peso\train\init_data
+  path: 
   size: 224
   tile_size: 1024
   num_class: 3
@@ -24,16 +24,16 @@ noise_range: all # all: both labeled and unlabeled ; labeled: only labeled sampl
 methods: both
 
 # train iteration param
-pretrained_iteration: 50    #!
+pretrained_iteration: 30    
 max_iteration: 20
 
 # O2U param
-o2u_iteration: 20           #!
+o2u_iteration: 20           
 o2u_noise_rate: 0.02
 o2u_infor_rate: 0.03
 
 # cluster param
-Kmeans_cluster: 10           #!
+Kmeans_cluster: 10         
 Kmeans_Visual_cluster: 8
 CC_cluster: 3
 PCA_components: 256
@@ -45,9 +45,9 @@ grad_save: 0
 # 
 visual_method: tsne
 # paths
-save_data_dir: D:\DATASETS\peso\train\
-logger_path: D:\Code\TVCG\project\FlaskServer\logs
-save_param_dir: D:\Code\TVCG\project\FlaskServer\models\param
+save_data_dir: 
+logger_path: 
+save_param_dir: 
 
 
 

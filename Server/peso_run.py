@@ -1,14 +1,11 @@
 from utils.log_config import MyLogger
 import os
-import torch
-from torch.autograd import Variable
 from utils.model_utils import *
 from utils.serialization import *
 from utils.make_dir import make_dir
 import numpy as np
 import models
 import os.path as osp
-from torch.cuda.amp import autocast, GradScaler
 from sklearn.cluster import DBSCAN, KMeans
 from sklearn.decomposition import PCA
 from datasets import HDF5Dataset
@@ -20,16 +17,14 @@ from Curriculum import CurriculumClustering
 from Fine import fine
 from sklearn.preprocessing import MinMaxScaler
 from CAM import *
-import cv2
 from tqdm import tqdm
 from sklearn.manifold import TSNE
 import umap
-import pynvml
+
 
 
 #
-# CONFIG_PATH = "/home/chenzhongming/TVCG_wsi/config/config.yaml"
-CONFIG_PATH = "D:\Code\TVCG\project\FlaskServer\config\config.yaml"
+CONFIG_PATH = "config/config.yaml"
 
 
 def read_config():
@@ -365,16 +360,7 @@ def save_iteration_data(
     return dataset.sample_data, dataset.epoch_Data, dataset.WSI_Data
 
 
-def getCudaMemoryRate(cuda_ids):
-    while 1:
-        for cu_id in cuda_ids:
-            pynvml.nvmlInit()
-            handle = pynvml.nvmlDeviceGetHandleByIndex(cu_id)
-            meminfo = pynvml.nvmlDeviceGetMemoryInfo(handle)
-            m_used = meminfo.used//(1024**2)
-            if m_used < 2000:
-                return str(cu_id)
-        time.sleep(1)
+
 
 
 if __name__ == '__main__':
@@ -386,22 +372,15 @@ if __name__ == '__main__':
     # init dataset
     peso_data = PesoTrain(config, logger)
     peso_data.init_data()
-
-    # ===========================================
-    logger.info("Loading cuda....")
-    # set gpu
     os.environ["CUDA_VISIBLE_DEVICES"] = config['cuda_id']
-    logger.info("Start!!!")
-    # ===========================================
-
     # create model
     model, scaler = init_backbone(config, logger)
     # train
     train_backbone(model, scaler, peso_data, 0, config, logger)
     # AL
-    # for e in range(1, config['max_iteration']+1):
-    #     auc, acc, cm = train_backbone(
-    #         model, scaler, peso_data, e, config, logger)
-    #     # epoch 1
-    #     _, s, e, w = active_learning_train_epoch(
-    #         config, logger, model, scaler, e, peso_data, auc, acc, cm)
+    for e in range(1, config['max_iteration']+1):
+        auc, acc, cm = train_backbone(
+            model, scaler, peso_data, e, config, logger)
+        # epoch 1
+        _, s, e, w = active_learning_train_epoch(
+            config, logger, model, scaler, e, peso_data, auc, acc, cm)

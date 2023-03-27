@@ -1,13 +1,6 @@
 
-import torch
 import os
 import numpy as np
-import umap
-import torch.cuda.amp as amp
-from torch.utils.data import DataLoader
-from torch.utils.data import RandomSampler 
-from torch.utils.data import SequentialSampler
-from torch.nn.parallel import DataParallel
 from sklearn.decomposition import PCA
 from sklearn.cluster import DBSCAN, KMeans
 from Curriculum import CurriculumClustering
@@ -33,7 +26,6 @@ best_swin=None
 
 def init_logger():
     name = "hubmap_largeintestine"
-    # name = "hubmap_clean_largeintestine"
     logger = MyLogger(file_name=name)
     logger.info("="*50)
     logger.info("Init Model Config...")
@@ -66,11 +58,11 @@ def init_config(log):
         'Pseudo_cluster':6,
         'CC_cluster':3,
         
-        'TRAIN' :'D:/DATASETS/hubmap/1000_pixel_images/train/',
-        'MASKS':'D:/DATASETS/hubmap/1000_pixel_images/masks/',
-        'LABELS' :'D:/DATASETS/hubmap/train.csv',
-        'OUT_DIR':'D:/DATASETS/hubmap/1000_pixel_images/result',
-        'SAVE_PATH':'D:/DATASETS/hubmap/1000_pixel_images/result/save_data'
+        'TRAIN' :'',
+        'MASKS':'',
+        'LABELS' :'',
+        'OUT_DIR':'',
+        'SAVE_PATH':''
     }
     for k,v  in config.items():
         log.info("%s : %s"%(k,v))

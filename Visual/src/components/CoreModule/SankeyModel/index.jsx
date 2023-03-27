@@ -62,107 +62,6 @@ export default class SankeyModel extends Component {
     if (epoch == -1) epoch = this.state.epochData.length-1;
     var nameData = [];
     var linkData = [];
-    // nameData.push({
-    //   name: "Labeled_",
-    //   itemStyle: {
-    //     color: "#f18bbf",
-    //     borderColor: "#f18bbf",
-    //   },
-    // });
-    // nameData.push({
-    //   name: "Unlabeled_",
-    //   itemStyle: {
-    //     color: "#0078D7",
-    //     borderColor: "#0078D7",
-    //   },
-    // });
-    // nameData.push({
-    //   name: "Noise_" ,
-    //   itemStyle: {
-    //     color: "#3891A7",
-    //     borderColor: "#3891A7",
-    //   },
-    // });
-    // nameData.push({
-    //   name: "Info_" ,
-    //   itemStyle: {
-    //     color: "#C0BEAF",
-    //     borderColor: "#C0BEAF",
-    //   },
-    // });
-    // nameData.push({
-    //   name: "Labeled_1",
-    //   itemStyle: {
-    //     color: "#f18bbf",
-    //     borderColor: "#f18bbf",
-    //   },
-    // });
-    // nameData.push({
-    //   name: "Unlabeled_1",
-    //   itemStyle: {
-    //     color: "#0078D7",
-    //     borderColor: "#0078D7",
-    //   },
-    // });
-    // nameData.push({
-    //   name: "Noise_1" ,
-    //   itemStyle: {
-    //     color: "#3891A7",
-    //     borderColor: "#3891A7",
-    //   },
-    // });
-    // nameData.push({
-    //   name: "Info_1" ,
-    //   itemStyle: {
-    //     color: "#C0BEAF",
-    //     borderColor: "#C0BEAF",
-    //   },
-    // });
-    // var i=0
-    // linkData.push(
-    //   {
-    //     source: nameData[4 * i].name,
-    //     target: nameData[4 * (i + 1)].name,
-    //     value:
-    //       this.state.epochData[i][0] -
-    //       (this.state.epochData[i + epoch][2] - this.state.epochData[i][2]),
-    //   },
-    //   {
-    //     source: nameData[4 * i + 1].name,
-    //     target: nameData[4 * (i + 1) + 1].name,
-    //     value: this.state.epochData[i + epoch][1],
-    //   },
-    //   {
-    //     source: nameData[4 * i + 2].name,
-    //     target: nameData[4 * (i + 1) + 2].name,
-    //     value: this.state.epochData[i][2],
-    //   },
-    //   {
-    //     source: nameData[4 * i + 3].name,
-    //     target: nameData[4 * (i + 1) + 3].name,
-    //     value: this.state.epochData[i][3],
-    //   },
-
-    //   {
-    //     source: nameData[4 * i + 1].name,
-    //     target: nameData[4 * (i + 1)].name,
-    //     value:
-    //       this.state.epochData[i][1] -
-    //       this.state.epochData[i + epoch][1] -
-    //       (this.state.epochData[i + epoch][3] - this.state.epochData[i][3]),
-    //   },
-    //   {
-    //     source: nameData[4 * i + 1].name,
-    //     target: nameData[4 * (i + 1) + 3].name,
-    //     value: this.state.epochData[i + epoch][3] - this.state.epochData[i][3],
-    //   },
-
-    //   {
-    //     source: nameData[4 * i].name,
-    //     target: nameData[4 * (i + 1) + 2].name,
-    //     value: this.state.epochData[i + epoch][2] - this.state.epochData[i][2],
-    //   }
-    // );
 
     for (var i = 0; i <= epoch; i++) {
       nameData.push({
@@ -305,7 +204,7 @@ export default class SankeyModel extends Component {
           calculable: true,
           show: false,
           inRange: {
-            color: ["#D9E9FF", "#0B69E3"], // 修改热力图的颜色 淡蓝色=>深蓝色的过度
+            color: ["#D9E9FF", "#0B69E3"], 
           },
           orient: "horizontal",
         },
@@ -345,7 +244,6 @@ export default class SankeyModel extends Component {
       <>
         <Row gutter={5}>
           <Col span={19}>
-            {/* <Title level={5}>SanKey for Epoches:</Title> */}
             <Slider
               className="slider-sankey"
               marks={this.state.marks}

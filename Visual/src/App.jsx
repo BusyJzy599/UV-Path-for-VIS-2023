@@ -8,7 +8,6 @@ import "./App.css";
 import React, { Component } from "react";
 import { Row, Layout, Space, Col, Spin, Alert } from "antd";
 import axios from "axios";
-// 导入组件
 import CoreModule from "./components/CoreModule";
 import MapVision from "./components/MapVision";
 import LeftModule from "./components/LeftModule";

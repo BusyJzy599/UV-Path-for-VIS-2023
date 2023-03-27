@@ -14,7 +14,6 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import confusion_matrix
 import cv2
 import os
-import torch.cuda.amp as amp
 
 
 MASKS = 'D:/DATASETS/hubmap/1000_pixel_images/masks/'
@@ -32,7 +31,6 @@ def noisify_seg(df):
         ])
     return msks
 
-# 0,1分类 相邻两类做noise
 def noisify_binary(labels, ratio=0.3):
     import copy
     x = copy.deepcopy(labels.flatten().tolist())
@@ -51,7 +49,7 @@ def noisify_binary(labels, ratio=0.3):
     res=np.array(x).reshape(-1,1)
     diff=np.sum(res!=labels)/len(x)
     return np.array(x).reshape(-1,1),diff
-# 噪声生成模块
+
 def multiclass_noisify(y, P, random_state=0):
     """ Flip classes according to transition probability matrix T.
     It expects a number between 0 and the number of classes - 1.
@@ -154,7 +152,6 @@ def normalize_patch_dict(d):
 
     
 
-# 计算acc以及auc
 def evaluate_auc(test_loader, model):
     model.eval()
     prediction=[]
@@ -232,7 +229,6 @@ def predict_train(loader,model):
 
 
 
-# 特征提取
 def to_torch(ndarray):
     if type(ndarray).__module__ == 'numpy':
         return torch.from_numpy(ndarray)
