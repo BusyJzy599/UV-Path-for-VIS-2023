@@ -1,0 +1,20 @@
+.ant-collapse>.ant-collapse-item {
+    color: azure;
+    font-size: 18px;
+}
+
+.siderFont {
+    color: azure
+}
+
+.ant-progress-circle .ant-progress-text  {
+    color: azure
+}
+h1.ant-typography,h3.ant-typography{
+    color: azure;
+    /* margin-top: 1vh; */
+}
+#epoch{
+    font-size: 32;
+    color: azure;
+}

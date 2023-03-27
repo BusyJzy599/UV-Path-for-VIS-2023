@@ -1,0 +1,311 @@
+@import "~antd/dist/antd.css";
+
+#root,
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+#example{
+  margin-top: 36vh;
+  margin-left: 36vw;
+  margin-right: 36vw;
+}
+.grid-style {
+  text-align: center;
+  display: block;
+  height: 21vh;
+  width: 50%;
+}
+.grid-img {
+  height: 11vh;
+  width: 6vw;
+}
+.line-chart-box {
+  border-top: 3px solid rgba(240, 242, 245);
+}
+.slider-sankey {
+  width: 56vw;
+  margin-left: 15px;
+}
+
+.ant-page-header {
+  background: #042950;
+}
+
+.ant-page-header-heading-title {
+  color: azure;
+  font-size: 30px;
+}
+
+.ant-page-header-heading-sub-title {
+  margin-top: 5px;
+  color: azure;
+}
+
+.ant-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+}
+
+.ant-card-head {
+  background: #adcfefd0;
+  color: azure;
+}
+
+.ant-card-body {
+  padding: 10px;
+}
+
+#one .ant-card {
+  height: 94vh;
+}
+
+#two .ant-card {
+  height: 100%;
+}
+
+#three .ant-card {
+  height: 160px;
+}
+
+.ant-divider {
+  margin: 0px;
+}
+
+.row_1 {
+  /* height: 68vh; */
+}
+
+.row_2 {
+  /* height: 20vh; */
+}
+
+/*===============================*/
+
+svg *::selection {
+  background: transparent;
+}
+
+svg *::-moz-selection {
+  background: transparent;
+}
+
+svg *::-webkit-selection {
+  background: transparent;
+}
+
+rect.selection {
+  stroke: #333;
+  stroke-dasharray: 4px;
+  stroke-opacity: 0.5;
+  fill: transparent;
+}
+
+rect.cell-border {
+  stroke: #eee;
+  stroke-width: 0.3px;
+}
+
+rect.cell-selected {
+  stroke: rgb(51, 102, 153);
+  stroke-width: 0.5px;
+}
+
+rect.cell-hover {
+  stroke: #f00;
+  stroke-width: 0.3px;
+}
+
+text.mono {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+  fill: #aaa;
+}
+
+text.text-selected {
+  fill: #000;
+}
+
+text.text-highlight {
+  fill: #c00;
+}
+
+text.text-hover {
+  fill: #00c;
+}
+
+#scatterTip {
+  /* left: -13vw ; */
+  /* position: absolute; */
+  width: 11vw;
+  height: 60vh;
+  padding: 6px;
+  background-color: rgba(245, 245, 245, 0.9);
+  border-radius: 5px;
+  z-index: 999;
+}
+
+#tooltipScatter {
+  position: absolute;
+  width: 220px;
+  padding: 5px;
+  /* background-color: rgba(246, 238, 238, 0.9); */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 999;
+}
+#tooltipMap{
+  position: absolute;
+  right: 1.5vw;
+  width: 8vw;
+  padding: 5px;
+  background-color: rgba(245, 245, 245, 0.6);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: 999;
+}
+#selectTip {
+  position: absolute;
+  width: 55.5vw;
+  height: auto;
+  padding: 6px;
+  background-color: rgba(246, 238, 238, 0.9);
+  /* -webkit-border-radius: 5px;
+  -moz-border-radius: 5px; */
+  border-radius: 1px;
+  /* -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); */
+  /* -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); */
+  /* box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); */
+  z-index: 999;
+}
+
+#tooltip {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+#tooltip1 {
+  position: absolute;
+  width: 110px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+#tooltip.hidden,
+#tooltip1.hidden {
+  display: none;
+}
+
+#tooltip p,
+#tooltip1 p {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.circle-hover {
+  r: 5;
+  fill-opacity: 1;
+}
+
+.childCard {
+  padding: 2px;
+  text-align: center;
+  display: block;
+  /* height: 20vh; */
+  width: 20%;
+  border: 1px solid #f0f0f0;
+ 
+
+}
+
+.headerModule {
+  background: #042950;
+  height:6vh;
+  padding-left: 1vw;
+  padding-bottom: 2vh;
+
+}
+
+.site-layout {
+  padding: "0 20px";
+  border: 3px solid rgba(103, 147, 212, 0.374); 
+  /* margin-left: -15px; */
+  /* margin-right: -15px; */
+}
+
+.basic {
+  display: flex;
+}
+
+#BarChart {
+  /* border-left: 3px solid rgba(240, 242, 245); */
+  height: 70vh;
+  width: 30vh;
+}
+
+.scatterChart {
+  height: 68vh;
+}
+
+#map {
+  height: 63vh;
+  width: 39vw;
+  margin-left: 5px;
+  border: 2px solid #f0f0f0;
+}
+#scatterTipBox {
+  z-index: 999;
+  position: absolute;
+}
+#scatterRow {
+  z-index: 990;
+  border: 2px solid #f0f0f0;
+}
+.scatterLabel{
+  font-weight: 500;
+}
+
+.WSI-tip{
+  z-index: 999;
+  position: absolute;
+  font-size: 5;
+  color: #8c8c8c;
+  margin-left: 10px;
+  margin-top: 5px;
+}
