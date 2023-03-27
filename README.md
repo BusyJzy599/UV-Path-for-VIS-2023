@@ -4,7 +4,7 @@ UV-Path, an interactive **U**ncertainty-aware **V**isualization framework that f
 
 The related paper, "UV-Path: Uncertainty-aware Visual Analytics for Weakly Supervised Learning on Histopathological Images," has been submitted to VIS 2023.
 
-![image-20230327171635769](C:\Users\GA\AppData\Roaming\Typora\typora-user-images\image-20230327171635769.png)
+![main](docs\main.png)
 
 ___
 
