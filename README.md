@@ -52,9 +52,9 @@ Training our model requires inputs in `.npy` format.
 The **UV-Path** project contains two parts: `Server` and  `Visual`.
 
 - `Sever` is  a lightweight backend service based on python [Flask](https://flask.palletsprojects.com/en/2.2.x/).  Its main functions are 1) calculating the iterative results of the model and storing them in a `.csv` files and 2) displaying the visual solution we designed in the front-end page via web requests.
-- `Visual` is a React app, its showcases the various visual solutions we have designed (see our paper).
+- `Visual` is a [React](https://react.dev/) app, its showcases the various visual solutions we have designed (see our paper).
 
-Before starting UV-Path, make sure that [python]([Welcome to Python.org](https://www.python.org/)) (>=3.7) with [Flask](https://flask.palletsprojects.com/en/2.2.x/) >= 2.1.0 and [node.js]([nodejs.org](https://nodejs.org/en)) have been installed.
+Before starting UV-Path, make sure that [python](https://www.python.org/) (>=3.7) with [Flask](https://flask.palletsprojects.com/en/2.2.x/) >= 2.1.0 and [node.js]([nodejs.org](https://nodejs.org/en)) have been installed.
 
 For starting ` Flask Server`, you can simply typing
 
