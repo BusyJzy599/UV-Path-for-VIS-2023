@@ -1,6 +1,6 @@
 # UV-Path
 
-UV-Path, an interactive $\textcolor{green}{U}ncertainty-aware \textcolor{blue}{V}isualization$ framework that facilitates $\textcolor{orange}{A}ctive$ $\textcolor{red}{L}earning$  for deep learning-based $histo\textcolor{red}{Path}ological$ image analysis. $UV-Path$ includes a noise-hard sample monitoring module, which allows experts to review samples and intervene in the model outcomes during the active learning (AL) process, enhancing both learning performance and transparency. 
+UV-Path, an interactive $\textcolor{green}{U}ncertainty-aware \textcolor{blue}{V}isualization$ framework that facilitates $\textcolor{orange}{A}ctive$ $\textcolor{red}{L}earning$  for deep learning-based $histo\textcolor{red}{Path}ological$ image analysis. **UV-Path** includes a noise-hard sample monitoring module, which allows experts to review samples and intervene in the model outcomes during the active learning (AL) process, enhancing both learning performance and transparency. 
 
 The related paper, "UV-Path: Uncertainty-aware Visual Analytics for Weakly Supervised Learning on Histopathological Images," has been submitted to VIS 2023.
 
@@ -49,7 +49,7 @@ Training our model requires inputs in `.npy` format.
 
 # How to start ?
 
-The $UV-Path$ project contains two parts: `Server` and  `Visual`.
+The **UV-Path** project contains two parts: `Server` and  `Visual`.
 
 - `Sever` is  a lightweight backend service based on python [Flask](https://flask.palletsprojects.com/en/2.2.x/).  Its main functions are 1) calculating the iterative results of the model and storing them in a `.csv` files and 2) displaying the visual solution we designed in the front-end page via web requests.
 - `Visual` is a [React](https://react.dev/) app, its showcases the various visual solutions we have designed (see our paper).
@@ -76,7 +76,7 @@ npm install / yarn
 npm start / yarn start
 ```
 
-Then navigate to `http://localhost:3000/` in your browser to see $UV-Path$ .
+Then navigate to `http://localhost:3000/` in your browser to see **UV-Path**.
 
 # Critations
 
