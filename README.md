@@ -47,9 +47,9 @@ Training our model requires inputs in `.npy` format.
 1. Configure each `path` according to your environment and set `img_num` to determine the number of WSIs you need.
 1. Run this python file by typing `python cut_slider.py`,where 
 
-```
-mask_transform
-```
+> `init_peso_WSI_train_percent `i s used to tile WSIs from PESO dataset according to cancer ratio in each patch. `npy_data_init_percent`is the corresponding function used to generate each `.npy` file.
+
+
 
 
 
