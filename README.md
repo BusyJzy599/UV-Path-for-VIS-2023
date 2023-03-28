@@ -1,6 +1,6 @@
 # UV-Path
 
-UV-Path, an interactive $\textcolor{green}{U}$ncertainty-aware $\textcolor{blue}{V}$isualization framework that facilitates $\textcolor{orange}{A}$ctive $\textcolor{red}{L}$earning for deep learning-based histo$\textcolor{red}{Path}$ological image analysis. **UV-Path** includes a noise-hard sample monitoring module, which allows experts to review samples and intervene in the model outcomes during the active learning (AL) process, enhancing both learning performance and transparency. 
+UV-Path, an interactive  $\textcolor{green}{U}$ncertainty-aware $\textcolor{blue}{V}$isualization framework that facilitates $\textcolor{orange}{A}$ctive $\textcolor{red}{L}$earning for deep learning-based histo$\textcolor{red}{Path}$ological image analysis. **UV-Path** includes a noise-hard sample monitoring module, which allows experts to review samples and intervene in the model outcomes during the active learning (AL) process, enhancing both learning performance and transparency. 
 
 The related paper, "UV-Path: Uncertainty-aware Visual Analytics for Weakly Supervised Learning on Histopathological Images," has been submitted to VIS 2023.
 
@@ -43,7 +43,15 @@ We used two publicly available datasets: [PESO](https://zenodo.org/record/148596
 
 Training our model requires inputs in `.npy` format. 
 
-1. 
+1. Open python file: `cut_slider.py`
+1. Configure each `path` according to your environment and set `img_num` to determine the number of WSIs you need.
+1. Run this python file by typing `python cut_slider.py`,where 
+
+```
+mask_transform
+```
+
+
 
 
 
