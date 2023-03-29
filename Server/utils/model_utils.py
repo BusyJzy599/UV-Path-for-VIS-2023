@@ -16,7 +16,7 @@ import cv2
 import os
 
 
-MASKS = 'D:/DATASETS/hubmap/1000_pixel_images/masks/'
+MASKS = ''
 def noisify_seg(df):
     msks=[]
     for d in range(len(df)):
