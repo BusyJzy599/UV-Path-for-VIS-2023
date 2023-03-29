@@ -40,7 +40,13 @@ We used two publicly available datasets: [PESO](https://zenodo.org/record/148596
     |     |_ hubmap/
     |         |_ 1000_pixel_images/
     |             |_ train/
+    |                |_ largeintestine/
+    |                   ...
+    |                |_ spleen/
     |             |_ masks/
+    |                |_ largeintestine/
+    |                   ...
+    |                |_ spleen/
 ```
 
 ## Generating `.npy` files and tiling WSIs for visualization
