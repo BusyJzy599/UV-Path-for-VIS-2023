@@ -27,6 +27,10 @@ We used two publicly available datasets: [PESO](https://zenodo.org/record/148596
     |             |_ init_labeled_set.npy/
     |             |_ init_unlabeled_set.npy/
     |             |_ bk_dataset.npy/
+    |         |_ init_data_image/
+    |             |_ image_0/
+    |                 ...
+    |             |_ image_29/
 ~~~
 
 - Hubmap (cancer segmentation):  The slides in the dataset are all 3000 x 3000 pixels, and the tissue area in each image is approximately 2500 x 2500 pixels and prepared with the periodate-Schiff (PAS)/hematoxylin and eosin (H&E) staining method. 
