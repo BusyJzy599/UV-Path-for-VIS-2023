@@ -21,7 +21,6 @@ import pandas as pd
 import pickle
 
 
-# resnet = models.create('resnet50', num_features=2048, num_classes=2).cuda()
 
 
 class FeatureExtractor():
@@ -39,7 +38,7 @@ class FeatureExtractor():
         outputs = []
         self.gradients = []
 
-        for name, module in self.model._modules.items():##resnet50没有.feature这个特征，直接删除用就可以。
+        for name, module in self.model._modules.items():#
             x = module(x)
             if name in self.target_layers:
                 x.register_hook(self.save_gradient)
@@ -111,7 +110,7 @@ class GradCam:
 
         self.model.zero_grad()
 
-        one_hot.backward(retain_graph=True) ## 这里适配我们的torch0.4及以上，我用的1.0也可以完美兼容。（variable改成graph即可）
+        one_hot.backward(retain_graph=True) #
 
         grads_val = self.extractor.get_gradients()[-1].cpu().data.numpy()
         target = features[-1]
@@ -127,6 +126,8 @@ class GradCam:
         cam = cam - np.min(cam)
         cam = cam / np.max(cam)
         return cam
+
+
 def preprocess_image(img):
     means=[0.485, 0.456, 0.406]
     stds=[0.229, 0.224, 0.225]

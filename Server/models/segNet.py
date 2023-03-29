@@ -6,7 +6,7 @@ from .basic_block import *
 from .swin_transformer import *
 from .uperNet import *
 
-pretrain_dir="/data/chenzhongming/hubmap/hubmap256/pretrain_param"
+pretrain_dir=""
 image_size=1024
 
 cfg = dict(
