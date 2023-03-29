@@ -70,7 +70,7 @@ class HubmapDataset1000(Dataset):
 
 
 
-LABELS = 'D:/DATASETS/hubmap/1000_pixel_images/train.csv'
+LABELS = ''
 image_size = 768
 class HubmapDataset(Dataset):
     def __init__(self, df, augment=None):

@@ -391,8 +391,6 @@ def mask_transform(
             Image.fromarray(masks_arr).save(os.path.join(sp, "mask_"+str(idx)+".tif"))
             Image.fromarray(slide_arr).save(os.path.join(sp,"slide_"+ str(idx)+".tif"))
 
-
-
 if __name__ == '__main__':
     # peso
     wsi_path = r""

@@ -16,7 +16,7 @@ In addition, we show some related GIFs for demonstration.
 
 We used two publicly available datasets: [PESO](https://zenodo.org/record/1485967#.Yz2NbuzMJ_A) and [Hubmap](https://www.kaggle.com/competitions/hubmap-organ-segmentation/data?select=train.csv).
 
-- PESO (cancer classification):  A large set of WSI of prostatectomy specimens with various grades of PCa. All the WSIs are stained with H&E and nearly 10,000×10,000 pixels. 
+- PESO (cancer classification):  A large set of WSI of prostatectomy specimens with various grades of prostate cancer. All the WSIs are stained with H&E and nearly 10,000×10,000 pixels. 
 
 ~~~
 |_ datasets
@@ -29,7 +29,7 @@ We used two publicly available datasets: [PESO](https://zenodo.org/record/148596
     |             |_ bk_dataset.npy/
 ~~~
 
-- Hubmap (cancer segmentation)  The slides in the dataset are all 3000 x 3000 pixels, and the tissue area in each image is approximately 2500 x 2500 pixels and prepared with the periodate-Schiff (PAS)/hematoxylin and eosin (H&E) staining method. 
+- Hubmap (cancer segmentation):  The slides in the dataset are all 3000 x 3000 pixels, and the tissue area in each image is approximately 2500 x 2500 pixels and prepared with the periodate-Schiff (PAS)/hematoxylin and eosin (H&E) staining method. 
 
 ```
 |_ datasets
@@ -41,7 +41,7 @@ We used two publicly available datasets: [PESO](https://zenodo.org/record/148596
 
 ## Generating `.npy` files and tiling WSIs for visualization
 
-Training our model requires inputs in `.npy` format. 
+Training our model with PESO dataset requires inputs in `.npy` format. 
 
 1. Open python file: `cut_slider.py`
 2. Configure each `path` according to your environment and set `img_num` to determine the number of WSIs you need.
@@ -49,11 +49,11 @@ Training our model requires inputs in `.npy` format.
 
 > `init_peso_WSI_train_percent` i s used to tile WSIs from PESO dataset according to cancer ratio in each patch. `npy_data_init_percent` is the corresponding function used to generate each `.npy` file.
 
+But for the Hubmap dataset, you need to do a simple pre-processing.
 
-
-
-
-
+1. Convert 3000 ×3000 resolution WSIs to a model-recognizable size of 1024 ×1024.
+2.  The sliced masks contained in the corresponding region can be extracted from the `.csv` file in the dataset.
+3. Generate `train` and `masks` folders and individual regions accordingly.
 
 # How to start ?
 
