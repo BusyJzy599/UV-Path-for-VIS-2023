@@ -10,7 +10,7 @@ In addition, we show some related GIFs for demonstration.
 
 - 
 
-## Talk about our model structure, see
+## Model base on active learning Framework
 
 ![main](docs/model.png)
 
