@@ -6,11 +6,13 @@ The related paper, "UV-Path: Uncertainty-aware Visual Analytics for Weakly Super
 
 ![main](docs/main.png)
 
-___
-
 In addition, we show some related GIFs for demonstration.
 
 - 
+
+## Talk about our model structure, see
+
+![main](docs/model.png)
 
 # Datasets
 
@@ -74,7 +76,7 @@ The **UV-Path** project contains two parts: `Server` and  `Visual`.
 
 Before starting UV-Path, make sure that [python](https://www.python.org/) (>=3.7) with [Flask](https://flask.palletsprojects.com/en/2.2.x/) >= 2.1.0 and [node.js]([nodejs.org](https://nodejs.org/en)) have been installed.
 
-For starting ` Flask Server`, you can simply typing
+For starting `Flask Server`, you can simply typing
 
 ```
 cd ./Server
